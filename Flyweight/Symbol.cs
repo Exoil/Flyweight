@@ -25,6 +25,11 @@ namespace Flyweight
 
                 return this.symbol.Equals(sym.symbol);
             }
+            else if (obj is char)
+            {
+               
+                return this.symbol.Equals((char)obj);
+            }
             return false;
         }
 

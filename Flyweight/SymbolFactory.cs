@@ -16,17 +16,17 @@ namespace Flyweight
         }
         public Symbol GetSymbol(char character)
         {
-            Symbol symbolTmp = new Symbol(character);
-
-            if (symbolList.Contains(symbolTmp))
+         
+     
+            if (symbolList.Where(item => item.Equals(character)).Select(item => item).FirstOrDefault() != null)
             {
-                 return symbolList.Where(item => item.Equals(symbolTmp)).Select(item => item).FirstOrDefault();
+                 return symbolList.Where(item => item.Equals(character)).Select(item => item).FirstOrDefault();
             }
 
             else
             {
-                symbolList.Add(symbolTmp);
-                return symbolList.Where(item => item.Equals(symbolTmp)).Select(item => item).FirstOrDefault(); ;
+                symbolList.Add(new Symbol(character));
+                return symbolList.Where(item => item.Equals(character)).Select(item => item).FirstOrDefault(); ;
             }
            
         }
